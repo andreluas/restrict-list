@@ -3,9 +3,11 @@ package br.com.andreluas.restrictlist.controllers;
 import java.net.URI;
 import java.util.List;
 
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,7 @@ import br.com.andreluas.restrictlist.services.RestrictListService;
 import jakarta.validation.Valid;
 
 @Controller
+@Validated
 @RequestMapping(value = "/api/v1")
 public class RestrictListController {
 
@@ -33,7 +36,7 @@ public class RestrictListController {
     }
 
     @GetMapping(value = "/cpf/{cpf}")
-    public ResponseEntity<RestrictListDTO> checkCpf(@PathVariable String cpf) {
+    public ResponseEntity<RestrictListDTO> checkCpf(@PathVariable @CPF String cpf) {
         RestrictListDTO dto = service.checkCpf(cpf);
         return ResponseEntity.ok().body(dto);
     }
@@ -48,7 +51,7 @@ public class RestrictListController {
     }
 
     @DeleteMapping(value = "/{cpf}")
-    public ResponseEntity<Void> removeCpf(@PathVariable String cpf) {
+    public ResponseEntity<Void> removeCpf(@PathVariable @CPF String cpf) {
         service.removeCpf(cpf);
         return ResponseEntity.noContent().build();
     }

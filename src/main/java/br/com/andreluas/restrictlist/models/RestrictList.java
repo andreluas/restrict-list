@@ -1,7 +1,7 @@
 package br.com.andreluas.restrictlist.models;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -25,14 +25,14 @@ public class RestrictList implements Serializable {
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @CreationTimestamp
     @Column(name = "created_at", updatable = false)
-    private Timestamp createdAt;
+    @CreationTimestamp
+    private Instant createdAt;
 
     public RestrictList() {
     }
 
-    public RestrictList(UUID id, String cpf, Timestamp createdAt) {
+    public RestrictList(UUID id, String cpf, Instant createdAt) {
         this.id = id;
         this.cpf = cpf;
         this.createdAt = createdAt;
@@ -54,11 +54,11 @@ public class RestrictList implements Serializable {
         this.cpf = cpf;
     }
 
-    public Timestamp getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 

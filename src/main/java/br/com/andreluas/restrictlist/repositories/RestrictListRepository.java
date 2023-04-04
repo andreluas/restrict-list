@@ -12,6 +12,4 @@ import br.com.andreluas.restrictlist.models.RestrictList;
 public interface RestrictListRepository extends JpaRepository<RestrictList, UUID> {
 
     Optional<RestrictList> findByCpf(String cpf);
-
-    Optional<RestrictList> deleteByCpf(String cpf);
 }
