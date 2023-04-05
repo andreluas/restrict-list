@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "e8b89fe6-a7fc-4f45-9653-603afadca39d",
+		"name": "restrictlist-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16697346"
+	},
+	"item": [
+		{
+			"name": "Find All CPFs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{api-version}}/cpf",
+					"host": [
+						"{{host}}{{api-version}}"
+					],
+					"path": [
+						"cpf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check CPF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}{{api-version}}/cpf/21198683015",
+					"host": [
+						"{{host}}{{api-version}}"
+					],
+					"path": [
+						"cpf",
+						"21198683015"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add CPF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"64852893055\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{api-version}}/cpf",
+					"host": [
+						"{{host}}{{api-version}}"
+					],
+					"path": [
+						"cpf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove CPF",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cpf\": \"64852893055\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{api-version}}/cpf/21198683015",
+					"host": [
+						"{{host}}{{api-version}}"
+					],
+					"path": [
+						"cpf",
+						"21198683015"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
